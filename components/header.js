@@ -308,18 +308,7 @@ export default class Layout extends Component {
                     </li>
                   </ul>
                   <ul class="side-nav-menu scrollable m-t-30 m-b-70 ">
-                    <li class="nav-item ">
-                     <Link href="/chat">
-                     <a class="dropdown-toggle" >
-                        <span class="icon-holder">
-                          <i class="anticon anticon-message menu-icon"></i>
-                        </span>
-                        <span class="title">Chat</span>
-                        <span class="arrow">
-                          <i class="arrow-icon"></i>
-                        </span>
-                      </a></Link>
-                    </li>
+        
                     <li class="nav-item ">
                      <Link href="/pickup"> 
                      <a   class="dropdown-toggle" >
