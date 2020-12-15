@@ -335,7 +335,7 @@ export default class Layout extends Component {
                       </a></Link>
                     </li>
                     <li class="nav-item my-3">
-                      <Link href="/">
+                      <Link href="http://klyna-login.vercel.app">
                       <a  class="dropdown-toggle" >
                         <span class="icon-holder">
                           <i class="anticon anticon-poweroff menu-icon"></i>
