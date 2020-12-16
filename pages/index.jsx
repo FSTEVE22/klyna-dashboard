@@ -1,4 +1,64 @@
 import Link from "next/link";
+import {
+  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,BarChart, Bar,  PieChart, Pie, Sector, Cell,
+} from 'recharts';
+
+const data = [
+  {
+    name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
+  },
+  {
+    name: 'Page B', uv: 3000, pv: 1398, amt: 2210,
+  },
+  {
+    name: 'Page C', uv: 2000, pv: 9800, amt: 2290,
+  },
+  {
+    name: 'Page D', uv: 2780, pv: 3908, amt: 2000,
+  },
+  {
+    name: 'Page E', uv: 1890, pv: 4800, amt: 2181,
+  },
+  {
+    name: 'Page F', uv: 2390, pv: 3800, amt: 2500,
+  },
+  {
+    name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
+  },
+];
+const datas = [
+  {
+    name: 'Jan', uv: 4000, pv: 2400, amt: 2400,
+  },
+  {
+    name: 'Feb', uv: 3000, pv: 1398, amt: 2210,
+  },
+  {
+    name: 'Mar', uv: 2000, pv: 9800, amt: 2290,
+  },
+  {
+    name: 'Apr', uv: 2780, pv: 3908, amt: 2000,
+  },
+  {
+    name: 'Mai', uv: 1890, pv: 4800, amt: 2181,
+  },
+  {
+    name: 'June', uv: 2390, pv: 3800, amt: 2500,
+  },
+  {
+    name: 'Jul', uv: 3490, pv: 4300, amt: 2100,
+  },
+];
+
+const data2 = [
+  { name: 'Group A', value: 400 },
+  { name: 'Group B', value: 300 },
+  { name: 'Group C', value: 300 },
+  { name: 'Group D', value: 200 },
+];
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+
+
 export default function Home() {
   return (
     <div>
@@ -19,7 +79,7 @@ export default function Home() {
                           <div>
                             <p class="m-b-0">Net Revenue</p>
                             <h2 class="m-b-0">
-                              <span>$14,966</span>
+                              <span>Fcfa 14,966</span>
                             </h2>
                           </div>
                           <div class="avatar avatar-icon avatar-lg avatar-blue">
@@ -33,10 +93,10 @@ export default function Home() {
                     <div class="card">
                       <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
-                          <div>
-                            <p class="m-b-0">Bounce Rate</p>
+                        <div>
+                            <p class="m-b-0">Net Revenue</p>
                             <h2 class="m-b-0">
-                              <span>26.80%</span>
+                            <span>26.80%</span>
                             </h2>
                           </div>
                           <div class="avatar avatar-icon avatar-lg avatar-cyan">
@@ -70,7 +130,7 @@ export default function Home() {
                           <div>
                             <p class="m-b-0">Total Expense</p>
                             <h2 class="m-b-0">
-                              <span>$6,138</span>
+                              <span>Fcfa 6,138</span>
                             </h2>
                           </div>
                           <div class="avatar avatar-icon avatar-lg avatar-gold">
@@ -141,7 +201,9 @@ export default function Home() {
                           point from last month
                         </p>
                         <div class="m-t-30" style={{ height: 150 + "px" }}>
-                          <canvas class="chart" id="rating-chart"></canvas>
+                        <LineChart width={200} height={100} data={data}>
+        <Line type="monotone" dataKey="pv" stroke="#8884d8" strokeWidth={2} />
+      </LineChart>
                         </div>
                       </div>
                     </div>
@@ -167,7 +229,22 @@ export default function Home() {
                           </div>
                         </div>
                         <div class="m-t-50" style={{ height: 225 + "px" }}>
-                          <canvas class="chart" id="sales-chart"></canvas>
+                        <BarChart
+                            width={500}
+                            height={265}
+                            data={datas}
+                            margin={{
+                              top: 0, right: 30, left: 20, bottom: 20,
+                            }}
+                            barSize={20}
+                          >
+                            <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} />
+                            <YAxis /> 
+                            <Tooltip />
+                            <Legend />
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <Bar dataKey="pv" fill="#8884d8" background={{ fill: '#eee' }} />
+                          </BarChart>
                         </div>
                       </div>
                     </div>
@@ -179,17 +256,33 @@ export default function Home() {
                           <h5>Monthly Target</h5>
                         </div>
                         <div
-                          class="d-flex align-items-center position-relative m-v-50"
+                          class="d-flex align-items-center position-relative m-v-30"
                           style={{ height: 150 + "px" }}
                         >
                           <div class="w-100 position-absolute d-flex justify-content-center ">
-                            <canvas
-                              class="chart m-h-auto"
-                              id="porgress-chart"
-                            ></canvas>
-                          </div>
+                          <PieChart width={800} height={400} >
+                          <Pie
+                            data={data2}
+                            cx={420}
+                            cy={200}
+                            startAngle={180}
+                            endAngle={0}
+                            innerRadius={60}
+                            outerRadius={80}
+                            fill="#8884d8"
+                            paddingAngle={5}
+                            dataKey="value"
+                          >
+                            {
+                              data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
+                            }
+                          </Pie>
+                        </PieChart><br/>
+                                            </div>
+                                            <br/>
                           <h2 class="w-100 text-center text-large m-b-0 text-success font-weight-normal">
-                            $3,531
+                          <br/>
+                            Fcfa 3,531
                           </h2>
                         </div>
                         <div class="d-flex justify-content-center align-items-center">
@@ -258,7 +351,7 @@ export default function Home() {
                                     </div>
                                   </td>
                                   <td>8 May 2019</td>
-                                  <td>$137.00</td>
+                                  <td>Fcfa 137.00</td>
                                   <td>
                                     <div class="d-flex align-items-center">
                                       <span class="badge badge-success badge-dot m-r-10"></span>
@@ -289,7 +382,7 @@ export default function Home() {
                                     </div>
                                   </td>
                                   <td>6 May 2019</td>
-                                  <td>$322.00</td>
+                                  <td>Fcfa 322.00</td>
                                   <td>
                                     <div class="d-flex align-items-center">
                                       <span class="badge badge-success badge-dot m-r-10"></span>
@@ -322,7 +415,7 @@ export default function Home() {
                                     </div>
                                   </td>
                                   <td>1 May 2019</td>
-                                  <td>$543.00</td>
+                                  <td>Fcfa 543.00</td>
                                   <td>
                                     <div class="d-flex align-items-center">
                                       <span class="badge badge-success badge-dot m-r-10"></span>
@@ -355,7 +448,7 @@ export default function Home() {
                                     </div>
                                   </td>
                                   <td>28 April 2019</td>
-                                  <td>$876.00</td>
+                                  <td>Fcfa 876.00</td>
                                   <td>
                                     <div class="d-flex align-items-center">
                                       <span class="badge badge-primary badge-dot m-r-10"></span>
@@ -388,7 +481,7 @@ export default function Home() {
                                     </div>
                                   </td>
                                   <td>28 April 2019</td>
-                                  <td>$241.00</td>
+                                  <td>Fcfa 241.00</td>
                                   <td>
                                     <div class="d-flex align-items-center">
                                       <span class="badge badge-success badge-dot m-r-10"></span>

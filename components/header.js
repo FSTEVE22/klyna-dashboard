@@ -282,6 +282,19 @@ export default class Layout extends Component {
                       </ul>
                     </li>
                     <li class="nav-item ">
+                     <Link href="/customer" >
+                     <a class="dropdown-toggle" >
+                        <span class="icon-holder">
+                          <i class="anticon anticon-user menu-icon"></i>
+                        </span>
+                        <span class="title">Add Customer</span>
+                        <span class="arrow">
+                          <i class="arrow-icon"></i>
+                        </span>
+                      </a>
+                     </Link>
+                    </li>
+                    <li class="nav-item ">
                      <Link href="/pickup" >
                      <a class="dropdown-toggle" >
                         <span class="icon-holder">
@@ -304,11 +317,12 @@ export default class Layout extends Component {
                         <span class="arrow">
                           <i class="arrow-icon"></i>
                         </span>
-                      </a></Link>
+                      </a>
+                      </Link>
                     </li>
                   </ul>
                   <ul class="side-nav-menu scrollable m-t-30 m-b-70 ">
-        
+                    
                     <li class="nav-item ">
                      <Link href="/pickup"> 
                      <a   class="dropdown-toggle" >
@@ -335,7 +349,7 @@ export default class Layout extends Component {
                       </a></Link>
                     </li>
                     <li class="nav-item my-3">
-                      <Link href="http://klyna-login.vercel.app">
+                      <Link href="/">
                       <a  class="dropdown-toggle" >
                         <span class="icon-holder">
                           <i class="anticon anticon-poweroff menu-icon"></i>
