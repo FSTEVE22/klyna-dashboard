@@ -230,11 +230,11 @@ export default function Home() {
                         </div>
                         <div class="m-t-50" style={{ height: 225 + "px" }}>
                         <BarChart
-                            width={500}
-                            height={265}
+                            width={400}
+                            height={255}
                             data={datas}
                             margin={{
-                              top: 0, right: 30, left: 20, bottom: 20,
+                              bottom: 20,
                             }}
                             barSize={20}
                           >
