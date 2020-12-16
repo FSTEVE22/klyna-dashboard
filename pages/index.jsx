@@ -113,7 +113,7 @@ export default function Home() {
                           <div>
                             <p class="m-b-0">Orders</p>
                             <h2 class="m-b-0">
-                              <span>3057</span>
+                              <span>3000</span>
                             </h2>
                           </div>
                           <div class="avatar avatar-icon avatar-lg avatar-red">
