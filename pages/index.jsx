@@ -94,7 +94,7 @@ export default function Home() {
                       <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <p class="m-b-0">Net Revenue</p>
+                            <p class="m-b-0">Net commition</p>
                             <h2 class="m-b-0">
                             <span>26.80%</span>
                             </h2>
